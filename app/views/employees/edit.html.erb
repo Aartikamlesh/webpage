@@ -1,0 +1,10 @@
+<h1>Editing employee Profile</h1>
+
+<%= render "form", employee: @employee %>
+
+<br>
+
+<div>
+  <%= link_to "Show", @employee,class:"btn btn-secondary" %> |
+  <%= link_to "Back", employees_path,class:"btn btn-dark" %>
+</div>

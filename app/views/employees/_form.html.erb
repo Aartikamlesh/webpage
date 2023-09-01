@@ -1,0 +1,50 @@
+<%= form_with(model: employee) do |form| %>
+  <% if employee.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+        <% employee.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+  
+    <%= form.text_field :first_name,class:"form-control",placeholder:"First Name" %>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.text_field :last_name,class:"form-control",placeholder:"Last Name"   %>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.text_field :email,class:"form-control",placeholder:"Email"   %>
+  </div>
+
+  <div class="field form-group">
+    
+    <%= form.text_field :phone ,placeholder:"phone" %>
+  </div>
+
+  <div class="field form-group">
+   
+    <%= form.text_field :twitter,class:"form-control",placeholder:"Twitter"   %>
+  </div>
+
+  <div class="field form-group">
+   
+    <%= form.number_field :user_id,
+     id: :employee_user_id, class:"form-control" ,value: current_user.id, type: :hidden  %>
+  </div>
+  
+
+  <div class="field form-group">
+    <%= form.submit class:'btn btn-secondary' %>
+  </div>
+
+<% end %>
